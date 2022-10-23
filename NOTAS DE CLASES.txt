@@ -1,0 +1,16 @@
+Clase 1: MERN= MONGO: Se guarda la info. EXPRESS: Permite que se exponga el codigo de js. REACT y NODEJS: Copilador o motor de js manejador de paquetes. 
+ https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/NaN
+https://www.youtube.com/watch?v=cC65D2q5f8I
+https://www.youtube.com/watch?v=bvkY9ey83yY&t=4s
+//si usas console.table() para los objetos queda mas lindo//
+
+Clase 2: 
+//Revision de contenidos clase 1, ver video otra vez y diapositivas. Leer documentacion y videos de youtube//
+- Hoisting en js, aca les dejo un video chicos ->https://www.youtube.com/watch?v=uI6o97A4IrI
+-Piensen en una función como un cajero automático que recibe algo (parámetros): tarjeta y clave, adentro cuenta el dinero para validar que esté completo (instrucciones) y retorna el dinero (return)
+// alt+96= ``
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+
+
+
