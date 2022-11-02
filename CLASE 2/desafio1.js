@@ -1,4 +1,4 @@
-class usuario {
+class Usuario {
     constructor (nombre, apellido, libros, mascotas) {
         this.nombre = nombre
         this.apellido = apellido
@@ -9,11 +9,11 @@ class usuario {
         console.log(`Hola mi nombre es ${this.nombre} y mi apellido ${this.apellido}.`);
     }
 
-    addMascotas(){
+    addMascotas(nombreDeMascotas){
         this.mascotas.push(nombreDeMascotas);
     }
     countMascotas(){
-        console.log(`Tienen ${this.mascotas.length} mascotas`);
+        return (`Tienen ${this.mascotas.length} mascotas`);
     }
     addBook(){
         this.libros.push(
@@ -24,10 +24,11 @@ class usuario {
         );
     }
     getBookNames() {
-        console.log (this.libros.map((libros) => this.libros.nombre))
+        return (this.libros.map((libros) => libros.nombreLibro))
     }
 }
-let libros =  [
+
+let libros = [
     {
         nombreLibro: `Filosofia en 11 frases`,
         autorLibro: `Dario Z`,
@@ -39,13 +40,32 @@ let libros =  [
 ];
 
 let usuario = new usuario (
-    "Candela","Dominguez Barco", libros, []
+    `Candela`,`Dominguez Barco`, libros, []
 )
+// me tira error porque la estoy declarando y tratando de utilizar al mismo tiempo? Me dice que no se puede acceder a 'usuario' antes de la inicialización
+// Como resuelvo ese error? 
 
 
+
+
+
+
+
+/*let lista = new Usuario(`Candela`, `Dominguez Barco`, [
+    {
+        nombreLibro: `Filosofia en 11 frases`,
+        autorLibro: `Dario Z`,
+    },
+    {
+        nombreLibro:`Cuentos de amor de locura y de muerte`,
+        autorLibro:`Horacio Quiroga`,
+    }
+],
+["Mariano","Pepe","Karina"]); */
 
 usuario.addMascotas(nombreDeMascotas = "Morcilla");
 usuario.countMascotas();
-
+//usuario.addBook(nombreLibro, autorLibro);
+//usuario.getBookNames()
 
 
