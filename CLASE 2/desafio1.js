@@ -39,16 +39,11 @@ let libros = [
     }
 ];
 
-let usuario = new usuario (
+let usuario = new Usuario (
     `Candela`,`Dominguez Barco`, libros, []
-)
+);
 // me tira error porque la estoy declarando y tratando de utilizar al mismo tiempo? Me dice que no se puede acceder a 'usuario' antes de la inicialización
 // Como resuelvo ese error? 
-
-
-
-
-
 
 
 /*let lista = new Usuario(`Candela`, `Dominguez Barco`, [
@@ -61,11 +56,11 @@ let usuario = new usuario (
         autorLibro:`Horacio Quiroga`,
     }
 ],
-["Mariano","Pepe","Karina"]); */
-
+["Mariano","Pepe","Karina"]);
+*/
 usuario.addMascotas(nombreDeMascotas = "Morcilla");
 usuario.countMascotas();
-//usuario.addBook(nombreLibro, autorLibro);
-//usuario.getBookNames()
+usuario.addBook(nombreLibro, autorLibro);
+usuario.getBookNames()
 
 
