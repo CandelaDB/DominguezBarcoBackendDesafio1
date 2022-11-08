@@ -93,7 +93,7 @@ class Contenedor {
         console.log ("flag: " + flag)
         if (flag){
             try {
-                await fs.promises.writeFile(this.nombreArchivo,JSON.stringify(this.arrayObj))
+                await fs.promises.writeFile(this.desafio2,JSON.stringify(this.arrayObj))
                 console.log("Se borro");
             }
             catch (err) {
