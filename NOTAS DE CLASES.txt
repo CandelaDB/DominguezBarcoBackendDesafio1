@@ -13,4 +13,8 @@ Clase 2:
 
 
 
+Clase 5:
+con ls … listas los directorios
+con cd te mueves entre archivos
 
+Cual es la dif de imporar con require y import? Cual es mejro?
