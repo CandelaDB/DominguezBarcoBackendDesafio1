@@ -1,4 +1,6 @@
+const express = require('express')
 const fs = require('fs');
+
 
 class Contenedor {
 
@@ -129,13 +131,6 @@ function test() {
     .then(() => productosContenedor.save(objetoAgregar))
     .then(() => productosContenedor.save(objetoAgregar2))
     .then(() => productosContenedor.save(objetoAgregar3))
-    .then(() => productosContenedor.getAll())
-    .then(array => {
-        console.log(array)
-        console.log(productosContenedor.getById(5));
-    })
-    .then(() => productosContenedor.deleteById(1))
-    .then(productosContenedor.deleteAll())
 }
 
 test();
