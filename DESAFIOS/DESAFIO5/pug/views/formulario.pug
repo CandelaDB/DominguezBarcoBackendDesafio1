@@ -1,0 +1,20 @@
+extends index.pug 
+
+block  formulario 
+h2=title 
+form(action='/productos' method='post')
+label(for='title') Titulo 
+br
+input#title(type="text" name='title')
+br
+label#price(for="price") Precio 
+br
+input(type="text" name='price')
+br
+label(for="thumbnail") Imagen 
+br
+input#thumbnail(type="url" name='thumbnail')
+br
+input.addButton(type="submit" value='Subir')
+br
+a.addButton(href="http://localhost:8080/productos") Ver todos los productos.     
