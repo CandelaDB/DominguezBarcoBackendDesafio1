@@ -1,0 +1,25 @@
+<h2> {{title}} </h2>
+
+{{#if exists}}
+    <div class="catalogo">
+    <table>
+        <tr>
+            <th>Titulo</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+        </tr>
+            {{#each list }}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td>$ {{this.price}}</td>
+                    <td><img class="productImage" src="{{this.thumbnail}}" alt="Imagen del producto"></td>
+                </tr>
+            {{/each}}
+    </table>
+    <br>
+    <a class="addButton" href="http://localhost:8080/">Agregar más productos al Stock</a>
+ </div>
+{{else}}
+    <h2>No hay productos</h2>
+    <a href="http://localhost:8080/" class="addButton" >Agregar un producto</a>
+{{/if}}

@@ -1,0 +1,41 @@
+h2 {
+    font-family: "Noto Sans KR", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    }
+form {
+        text-align: center;
+        }
+        
+form input {
+        margin: 2px 20px;
+        }
+.addButton, 
+button {
+    background-color: #f49393 ;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 10px;
+    border: 1px solid transparent;
+}
+.addButton:hover,
+button:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #f49393;
+}
+table{
+    text-align: center;
+    width: 80%;
+    margin: auto auto;
+    }
+
+    table th{
+    background: linear-gradient(#3a3a3a, #999595);
+    padding: 10px;
+    color: #fff;
+    }
+
+    table tr{
+    background-color: #cfb2b2;
+    }
