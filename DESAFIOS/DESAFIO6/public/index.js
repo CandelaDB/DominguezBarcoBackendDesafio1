@@ -16,7 +16,7 @@ function updateProducts(table, productsArray) {
 function updateMessages(messagesArray) {
     const html = messagesArray.map(message => {
     return `<div>
-        <span style="color: red">${message.email}</span><span style="color: blue"> [${message.dateAndTime}] </span><span style="color: green">${message.message}</span>
+        <span style="color: blue">${message.email}</span><span style="color: red"> [${message.dateAndTime}] </span><span style="color: green">${message.message}</span>
     </div>`
     }).join(" ")
     document.getElementById("messagesMain").innerHTML = html;
