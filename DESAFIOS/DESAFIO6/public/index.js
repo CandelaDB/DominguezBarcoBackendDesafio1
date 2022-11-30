@@ -9,7 +9,7 @@ function updateProducts(table, productsArray) {
     let row = table.insertRow();
     row.insertCell().innerHTML = element.title;
     row.insertCell().innerHTML = element.price;
-    row.insertCell().innerHTML = `<img src="${element.thumbnail}" alt="${element.title}" width="60px">`;
+    row.insertCell().innerHTML = `<img src="${element.thumbnail}" alt="${element.title}" width="40px">`;
     });
 }
 
