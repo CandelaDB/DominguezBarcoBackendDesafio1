@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "id": 1,
+    "timestamp": 1670275222903,
+    "productos": [
+      {
+    "id": 1,
+    "timestamp": 1670274710073,
+    "nombre": "cafe",
+    "descripcion": "cafe negro",
+    "codigo": "abc",
+    "precio": 500,
+    "foto": "https://cdn2.iconfinder.com/data/icons/coffee-store/64/coffee-04-256.png",
+    "stock": 10
+      },
+      {
+    "id": 2,
+    "timestamp": 1670274720980,
+    "nombre": "capuchino",
+    "descripcion": "cafe con leche y chocolate",
+    "codigo": "abc",
+    "precio": 800,
+    "foto": "https://cdn2.iconfinder.com/data/icons/coffee-store/64/coffee-08-256.png",
+    "stock": 10
+      }
+    ]
+  }
+]
