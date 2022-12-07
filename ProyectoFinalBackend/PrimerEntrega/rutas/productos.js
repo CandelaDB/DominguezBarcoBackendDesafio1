@@ -8,7 +8,7 @@ import { validId, existsProduct } from "../controles/productos/validacionProduct
 const { Router } = express;
 const prodRouter = Router();
 
-export const prodContainer = new Contenedor("./data/productos.txt");
+export const prodContenedor = new Contenedor("./data/productos.txt");
 
 prodRouter.get("/:id?", validId, getProducts);
 
