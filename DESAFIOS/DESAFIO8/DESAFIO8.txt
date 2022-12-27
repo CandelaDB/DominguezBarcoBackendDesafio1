@@ -1,0 +1,91 @@
+Creo servidor de base de datos:
+1.Abro consola cdm 
+2.Me posiciono dentro de la carpeta BACKEND con cd C:\Users\can_D\OneDrive\Escritorio\BACKEND\DESAFIOS
+3.Creo una carpeta para guardar las bases de datos con MD  DESAFIO8
+4.mongod –dbpath ./DESAFIO8
+Me conecto: 
+1.Abro otra consola de cdm 
+2.mongosh  
+------------DESAFIO8-----------------------
+1. use ecommerce
+2. db.createCollection('productos') 
+3. db.createCollection('mensajes')
+1) db.productos.insertMany([
+        {title: "Cafe", price:500, thumbnail:"imagen1"},
+        {title: "Cafe en granos", price:1500, thumbnail:"imagen2"},
+        {title: "Capuchino", price:700, thumbnail:"imagen3"},
+        {title: "Cortado", price:600, thumbnail:"imagen4"},
+        {title: "Late", price:400, thumbnail:"imagen5"},
+        {title: "Caramel", price:800, thumbnail:"imagen6"},
+        {title: "Frapuchino", price:800, thumbnail:"imagen7"},
+        {title: "Matcha latte", price:500, thumbnail:"imagen8"},
+        {title: "Chocolatada", price:300, thumbnail:"imagen9"},
+        {title: "Lagrima", price:510, thumbnail:"imagen10"}
+    ])
+2) db.productos.find() : Para que me enliste lo que guarde en mi colección y ver si quedo bien lo que caregue
+
+db.mensajes.insertMany(
+    [
+        {author: "candela@gmail.com", date:"26/12/22 20:00", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "fabrizio@gmail.com", date:"26/12/22 20:01", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "morcilla@gmail.com", date:"26/12/22 20:02", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "juan@gmail.com", date:"26/12/22 20:03", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "pedro@gmail.com", date:"26/12/22 20:04", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "laura@gmail.com", date:"26/12/22 20:05", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "carla@gmail.com", date:"26/12/22 20:06", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "marcos@gmail.com", date:"26/12/22 20:07", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "pepe@gmail.com", date:"26/12/22 20:08", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."},
+        {author: "lucia@gmail.com", date:"26/12/22 20:09", text:"Lorem ipsum dolor sit amet quisque sed metus convallis."}
+    ])
+2) db.mensajes.find() : Para que me enliste lo que guarde en mi colección y ver si quedo bien lo que caregue
+3)  Para mostrar la cantidad de documentos que tiene una colección: (las dos tienen 10)
+db.mensajes.estimatedDocumentCount() 
+db.productos.estimatedDocumentCount()
+4) 
+a) Para agregar un producto:
+db.productos.insertOne({title:"Submarino", price: 590, thumbnail:"imagen11"})
+
+b) Para enlistar los productos con menos de $1000:
+db.productos.find({price:{$lt: 1000}})
+
+c) Para enlistar los productos entre $1000 y $3000:
+db.productos.find({$and: [{price:{$gt: 1000}}, {price:{$lt: 3000}}]})
+
+d)Para enlistar los productos mayores que $3000:
+db.productos.find({price:{$gt: 3000}})
+
+e) Para que devuelva el tercer producto mas barato:
+db.productos.find({}, {"title":1}).skip(2).limit(1).sort( { "price": 1, "_id": 1 } )
+Devuelve: // [ { _id: ObjectId("63aa25e6b31e48c6dd288c45"), title: 'Cafe' } ] //
+
+f) Agregar stock de 100 a los productos:
+db.productos.updateOne({}, {$set:{"stock": 100}}, {"multi": true})
+
+g)Cambiar el stock en 0 a mayores de $1000 (porque no tengo productos de $4000):
+db.productos.updateOne({price:{$gt: 1000}}, {$set:{"stock": 0}}, {"multi": true})
+
+h) Borro los productos menores a $1000:
+db.productos.deleteMany({price:{$lt: 1000}})
+
+5) Creo usuario read:
+-Dentro de la consola de cdm que cree mi servidor de base de datos pongo mongod –dbpath ./DESAFIO8 --auth
+-En la otra consola de cdm pongo:
+use admin
+db.createUser({
+        user: "pepe",
+        pwd: "asd456",
+        roles:[
+            {role: "read", db: "ecommerce"}
+        ]
+    })
+
+-Cierro con exit e ingreso con el usuario mongosh -u pepe y pongo la contraseña asd456
+use ecommerce 
+
+db.productos.find()
+
+*Me deja leer los productos que tengo
+
+db.productos.insertOne({title: "prueba que no tengo permiso"}) 
+
+*No me deja editar agregando el titulo "prueba que no tengo permiso" en productos.
