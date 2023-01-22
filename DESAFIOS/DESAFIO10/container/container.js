@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const models = require("../models/models")
 const modelsChat = require("../models/modelsChat")
 
-mongoose.connect("mongodb+srv://CandelaDB:Felipe26@miprimercluster0.siwd3dh.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect('mongodb+srv://CandelaDB:Felipe26!@miprimercluster0.siwd3dh.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {

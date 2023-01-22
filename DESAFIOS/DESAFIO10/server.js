@@ -26,7 +26,7 @@ app.set('view engine', 'ejs')
 app.use(cookieParser())
 app.use(session({
     store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://CandelaDB:Felipe26@miprimercluster0.siwd3dh.mongodb.net/?retryWrites=true&w=majority',
+    mongoUrl: 'mongodb+srv://CandelaDB:Felipe26!@miprimercluster0.siwd3dh.mongodb.net/?retryWrites=true&w=majority',
     mongoOptions: advancedOptions
     }),
     secret: "coder",
@@ -40,7 +40,6 @@ app.use(session({
 app.use(express.static(__dirname + "/Public"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/ingresar', ingresar);
 app.use('/productos', productos);
 app.use('/test', productosTest);
 
