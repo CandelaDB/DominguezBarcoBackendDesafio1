@@ -40,6 +40,7 @@ app.use(session({
 app.use(express.static(__dirname + "/Public"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/ingresar', ingresar);
 app.use('/productos', productos);
 app.use('/test', productosTest);
 
