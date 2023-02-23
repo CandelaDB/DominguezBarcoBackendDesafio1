@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "aaaaa.js",
+  "main": "server.js",
   "scripts": {
     "test": "node benchmark.js",
     "start": "0x server.js"
