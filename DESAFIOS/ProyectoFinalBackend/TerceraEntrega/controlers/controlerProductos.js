@@ -1,7 +1,7 @@
-import container from "../containers/containerProductos.js";
+import ContainerProductos from "../containers/containerProductos.js";
 import logger from '../logger.js';
 
-const Producto = new container();
+const Producto = new ContainerProductos();
 
 export const get = (req, res) => {
     const id = req.params.id;

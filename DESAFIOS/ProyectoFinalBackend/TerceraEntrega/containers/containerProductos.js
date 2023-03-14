@@ -20,7 +20,7 @@ try {
 }
 
 
-export default class Container {
+export default class ContainerProductos {
 
     async add(data){
         const dataAdd = new modelsProductos(data);

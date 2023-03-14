@@ -1,0 +1,31 @@
+h2(style='color:crimson;') Listado de productos
+    if carritos && carritos.productos.length > 0
+        div(class='table-responsive')
+            table.table.table-dark.my-2
+                tr(style='color: yellow;')
+                    th Nombre
+                    th Descripcion
+                    th Codigo
+                    th Precio
+                    th Stock
+                    th Foto
+                each val in carritos.productos
+                    tr
+                        td= val.name
+                        td= val.description
+                        td= val.code
+                        td= val.price
+                        td= val.stock
+                        td= val.photo
+                        td 
+                            form(onsubmit=`return eliminarProducto('${val._id}')`)
+                                button.btn.btn-danger.btn-sm(type='submit') Eliminar Producto
+        .d-flex.justify-content-center
+            form(onsubmit=`return eliminarCarrito()`)
+                button.btn.btn-danger.btn-sm(type='submit') Eliminar Carrito 
+            form(action='/compras', method='post')
+                button.btn.btn-success.btn-sm.mx-3(type='submit') Compar 
+                            
+    else
+        h3(class='alert alert-danger') No products
+        a.nav-link(href='/productos') Añadir Productos

@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 import MongoStore from "connect-mongo";
 import { Server } from "socket.io";
 import { createServer } from "http";
-import { ingresar, productos, registrarse, salir } from "./routers/routers.js";
+import { ingresar, productos, registrarse, salir , inicio, carrito, compras } from "./routers/routers.js";
 import productosTest from "./routers/routersTest.js";
 import container from "./containers/containerChat.js";
 import path from "path";
@@ -93,6 +93,9 @@ if (args.modo == "CLUSTER" && cluster.isPrimary) {
     app.use("/productos", productos);
     app.use("/registrarse", registrarse);
     app.use("/salir", salir);
+    app.use('/inicio', inicio);
+    app.use('/carrito', carrito);
+	app.use('/compras', compras);
     app.use("/test", productosTest);
     app.use("/infoNoBloq", infoNoBloqueante);
     app.use("/infoBloq", infoBloqueante);
@@ -102,9 +105,22 @@ if (args.modo == "CLUSTER" && cluster.isPrimary) {
     res.send("Ruta inexistente");
     })
     app.get('/', (req, res) => {
-    res.redirect('/productos');
-    logger.info('redirected to /productos');
-    })
+    res.redirect('/inicio');
+    logger.info('redirected to /inicio');
+    });
+    app.get('/mensajes', (req, res) => {
+		const user = req.user.username;
+		const avatar = req.user.photo;
+		const saludo = `Bienvenido ${user}`;
+		if (req.user?.username) {
+			return res.render('UserLogin/mensajes', { saludo, avatar });
+		}
+		if (req.user?.admin) {
+			return res.render('Admin/mensajes', { saludo, avatar });
+		}
+		res.redirect('/');
+	});
+
 
     io.on("connection", async socket =>{
 
